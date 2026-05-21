@@ -62,7 +62,8 @@ docker compose exec backend python manage.py migrate
 docker compose exec backend python manage.py collectstatic --no-input
 
 # Копируем статику в нужную директорию для Nginx
-docker compose exec backend cp -r /app/collected_static/. /backend_static/
+docker compose exec backend mkdir -p /backend_static/static/
+docker compose exec backend cp -r /app/collected_static/. /backend_static/static/
 ```
 
 ### 5. Создание суперпользователя
